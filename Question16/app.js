@@ -1,19 +1,10 @@
-const readline = require('readline');
+const prompt = require('prompt-sync')();
 const drawTriangle = require('./drawTriangle');
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+const n = parseInt(prompt('Digite a altura do triângulo: '));
 
-rl.question('Digite a altura do triângulo: ', (answer) => {
-    const n = parseInt(answer);
-
-    if (!isNaN(n) && n > 0) {
-        drawTriangle(n);
-    } else {
-        console.log('Por favor, insira um número válido maior que 0.');
-    }
-
-    rl.close();
-});
+if (!isNaN(n) && n > 0) {
+    drawTriangle(n);
+} else {
+    console.log('Por favor, insira um número válido maior que 0.');
+}

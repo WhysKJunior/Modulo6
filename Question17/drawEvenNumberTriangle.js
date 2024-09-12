@@ -13,10 +13,7 @@ function drawEvenNumberTriangle(n) {
     let index = 0;
     for (let i = 1; i <= n; i++) {
         console.log(evenNumbers.slice(index, index + i).join(' '));
-        console.log(index)
         index += i;  
-        
-        console.log(n)
     }
 }
 

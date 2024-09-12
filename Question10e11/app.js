@@ -1,23 +1,11 @@
-const readline = require('readline');
+const prompt = require('prompt-sync')();
 const { encryptSentenceWithCaesarCipher } = require('./cesarCipher');
 
-function createReadlineInterface() {
-    return readline.createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });
-}
-
 function runCaesarCipherProgram() {
-    const rl = createReadlineInterface();
-    rl.question('Digite a frase que deseja cifrar: ', (sentence) => {
-        rl.question('Digite o valor de deslocamento: ', (shift) => {
-            let encryptedSentence = encryptSentenceWithCaesarCipher(sentence, parseInt(shift));
-            console.log('Frase cifrada: ' + encryptedSentence);
-            rl.close();
-        });
-    });
+    const sentence = prompt('Digite a frase que deseja cifrar: ');
+    const shift = prompt('Digite o valor de deslocamento: ');
+    const encryptedSentence = encryptSentenceWithCaesarCipher(sentence, parseInt(shift));
+    console.log('Frase cifrada: ' + encryptedSentence);
 }
 
-// Executa o programa
 runCaesarCipherProgram();
